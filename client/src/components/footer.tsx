@@ -1,4 +1,5 @@
-import { Sparkles, Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
+import logoImg from "@assets/download_(60)_1770737910930.png";
 
 export function Footer() {
   const scrollTo = (href: string) => {
@@ -12,10 +13,11 @@ export function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary-foreground" />
-              </div>
-              <span className="text-lg font-bold">Pristine Polish</span>
+              <img
+                src={logoImg}
+                alt="Pristine Polish"
+                className="h-10 w-auto brightness-0 invert"
+              />
             </div>
             <p className="text-sm opacity-60 leading-relaxed max-w-xs">
               Professional cleaning services in Newcastle upon Tyne and Gateshead. Affordable, prompt, and tailored to your needs.

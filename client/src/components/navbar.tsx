@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Sparkles } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import logoImg from "@assets/download_(60)_1770737910930.png";
 
 const navLinks = [
   { label: "Services", href: "#services" },
@@ -43,14 +44,11 @@ export function Navbar() {
             className="flex items-center gap-2"
             data-testid="link-logo"
           >
-            <div className="w-9 h-9 rounded-md bg-primary flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className={`text-lg font-bold tracking-tight ${isScrolled ? "text-foreground" : "text-white dark:text-foreground"}`}>
-                Pristine Polish
-              </span>
-            </div>
+            <img
+              src={logoImg}
+              alt="Pristine Polish"
+              className={`h-10 sm:h-12 w-auto ${isScrolled ? "" : "brightness-0 invert dark:brightness-100 dark:invert-0"}`}
+            />
           </button>
 
           <div className="hidden md:flex items-center gap-1">
