@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer } from "http";
-import { serveStatic } from "./static";
+import path from "path";
+import fs from "fs";
 
 const app = express();
 const httpServer = createServer(app);
@@ -17,7 +18,14 @@ function log(message: string, source = "express") {
 
 (async () => {
   if (process.env.NODE_ENV === "production") {
-    serveStatic(app);
+    const distPath = path.resolve(process.cwd(), "dist", "public");
+    if (!fs.existsSync(distPath)) {
+      throw new Error(`Could not find the build directory: ${distPath}`);
+    }
+    app.use(express.static(distPath));
+    app.use("/{*path}", (_req, res) => {
+      res.sendFile(path.resolve(distPath, "index.html"));
+    });
   } else {
     const { setupVite } = await import("./vite");
     await setupVite(httpServer, app);
