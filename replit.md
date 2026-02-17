@@ -4,12 +4,15 @@
 Professional cleaning service business website for **Pristine Polish**, serving the North East, UK. Purely static single-page marketing site - no backend or database.
 
 ## Recent Changes
+- 2026-02-17: Pricing simplified to single model: £100/month for 2 cleans, 10% off first month only
+- 2026-02-17: Testimonials replaced with "Our Results" before/after gallery (4 property types)
+- 2026-02-17: Team section updated - heading "Introducing the Pristine Team", all 5 images use cleaner-1 as grayscale/blurred placeholders with "Coming Soon" overlay
+- 2026-02-17: Hero headline updated to "Professional Cleaning That Gives You Back Your Time" with trust signals
+- 2026-02-17: Services section now has CTA button at bottom
+- 2026-02-17: Navigation updated - "Testimonial" link replaced with "Results"
 - 2026-02-11: Major content update - About section rewritten to 3rd person, removed personal owner references, location changed to "North East"
 - 2026-02-11: Removed same-day service, added free in-home consultation
-- 2026-02-11: Pricing updated - fortnightly is £100/month for 2 visits (not per visit), promo changed to 10% off first 3 months
 - 2026-02-11: Removed window cleaning from services and pricing (requires separate insurance)
-- 2026-02-11: Testimonials reduced to single review from Mr & Mrs Johnson
-- 2026-02-11: Added Team section with 5 generated cleaner images (no faces, folded arms, teal uniforms)
 - 2026-02-11: Added eco-friendly/allergen check and no-extra-cost-for-overtime highlights
 - 2026-02-11: Converted to static site - removed backend API, database, and API calls
 - 2026-02-11: Added official business logo to navbar and footer
@@ -25,9 +28,10 @@ Professional cleaning service business website for **Pristine Polish**, serving 
 
 ### Key Files
 - `client/src/pages/home.tsx` - Main page composing all sections
-- `client/src/components/` - All section components (navbar, hero, services, about, team, pricing, testimonials, quote-section, footer)
+- `client/src/components/` - All section components (navbar, hero, services, about, team, pricing, results-section, quote-section, footer)
+- `client/src/components/results-section.tsx` - Before/after gallery replacing old testimonials
 - `client/src/components/quote-section.tsx` - Has placeholder div (#embedded-form) for user to embed their own form
-- `client/src/components/team-section.tsx` - Team photos section (5 cleaner images)
+- `client/src/components/team-section.tsx` - Team photos section (5 placeholder cleaner images, grayscale/blurred)
 - `vite.config.ts` - Build config, outputs to dist/public
 - `vercel.json` - Vercel deployment configuration
 
@@ -44,9 +48,9 @@ Professional cleaning service business website for **Pristine Polish**, serving 
 - Business owner wants professional positioning
 - All copy must be 3rd person, customer-focused - no personal owner references
 - Affordable, prompt service messaging
-- 10% off first 3 months promotion (subscription)
+- 10% off first month promotion (changed from 3 months)
 - No window cleaning (needs separate insurance/council approval)
-- Fortnightly = £100/month for 2 visits, no extra cost if job runs over time
+- Single pricing plan: £100/month for 2 visits, no extra cost if job runs over time
 - Free in-home consultation for tailored service
 - Premium/eco-friendly products & allergen check
 - Wants static site deployable to Vercel
