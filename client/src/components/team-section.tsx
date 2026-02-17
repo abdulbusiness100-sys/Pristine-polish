@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 const teamMembers = [
   { src: "/images/cleaner-1.png", alt: "Pristine Polish team member" },
-  { src: "/images/cleaner-2.png", alt: "Pristine Polish team member" },
-  { src: "/images/cleaner-3.png", alt: "Pristine Polish team member" },
-  { src: "/images/cleaner-4.png", alt: "Pristine Polish team member" },
-  { src: "/images/cleaner-5.png", alt: "Pristine Polish team member" },
+  { src: "/images/cleaner-1.png", alt: "Pristine Polish team member" },
+  { src: "/images/cleaner-1.png", alt: "Pristine Polish team member" },
+  { src: "/images/cleaner-1.png", alt: "Pristine Polish team member" },
+  { src: "/images/cleaner-1.png", alt: "Pristine Polish team member" },
 ];
 
 export function TeamSection() {
@@ -23,7 +23,7 @@ export function TeamSection() {
             Our Team
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
-            Meet the Pristine Polish Team
+            Introducing the Pristine Team
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             Our trained and uniformed professionals are ready to make your space sparkle.
@@ -43,10 +43,13 @@ export function TeamSection() {
               <img
                 src={member.src}
                 alt={member.alt}
-                className="w-full aspect-[3/4] object-cover"
+                className="w-full aspect-[3/4] object-cover grayscale blur-[2px]"
                 data-testid={`img-team-member-${index}`}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+              <div className="absolute bottom-3 left-0 right-0 text-center">
+                <span className="text-white/70 text-xs font-medium uppercase tracking-wider">Coming Soon</span>
+              </div>
             </motion.div>
           ))}
         </div>

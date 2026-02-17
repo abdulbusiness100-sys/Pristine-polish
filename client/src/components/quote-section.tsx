@@ -48,7 +48,7 @@ export function QuoteSection() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground">Location</p>
-                  <p className="text-sm font-medium text-foreground">Newcastle upon Tyne / Gateshead</p>
+                  <p className="text-sm font-medium text-foreground">Serving the North East</p>
                 </div>
               </div>
             </div>
@@ -57,9 +57,9 @@ export function QuoteSection() {
               <div className="flex items-start gap-3">
                 <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm font-semibold text-foreground mb-1">10% Off Your First Clean</p>
+                  <p className="text-sm font-semibold text-foreground mb-1">10% Off Your First Month</p>
                   <p className="text-xs text-muted-foreground leading-relaxed">
-                    Get 10% off any initial deep clean or end of tenancy clean. Mention this offer when you get in touch.
+                    Subscribe to our monthly cleaning plan and get 10% off your first month. Mention this offer when you get in touch.
                   </p>
                 </div>
               </div>

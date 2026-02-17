@@ -34,7 +34,7 @@ export function AboutSection() {
             </div>
             <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-primary text-primary-foreground rounded-md p-4 sm:p-6">
               <div className="text-2xl sm:text-3xl font-bold">10%</div>
-              <div className="text-xs sm:text-sm opacity-90">off your first<br />3 months</div>
+              <div className="text-xs sm:text-sm opacity-90">off your first<br />month</div>
             </div>
           </motion.div>
 

@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
-import { Home, Building2, CalendarCheck, Sparkles, Trash2, LayoutGrid, PartyPopper, ArrowUpDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Home, Building2, CalendarCheck, Sparkles, Trash2, LayoutGrid, PartyPopper, ArrowUpDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 const services = [
@@ -46,6 +47,11 @@ const services = [
 ];
 
 export function ServicesSection() {
+  const scrollTo = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="services" className="py-20 sm:py-28 bg-background" data-testid="section-services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -93,6 +99,24 @@ export function ServicesSection() {
             </motion.div>
           ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <Button
+            size="lg"
+            onClick={() => scrollTo("#quote")}
+            className="text-base"
+            data-testid="button-services-quote"
+          >
+            Book Your Free Consultation
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

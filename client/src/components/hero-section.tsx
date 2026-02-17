@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star, ShieldCheck, ClipboardCheck } from "lucide-react";
+import { ArrowRight, ShieldCheck, ClipboardCheck, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
@@ -32,13 +32,25 @@ export function HeroSection() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-            Everyone Deserves a
-            <span className="block" style={{ color: "hsl(170 40% 75%)" }}> Pristine Space</span>
+            Professional Cleaning That Gives You Back
+            <span className="block" style={{ color: "hsl(170 40% 75%)" }}> Your Time</span>
           </h1>
 
-          <p className="text-lg sm:text-xl text-white/80 mb-8 max-w-lg leading-relaxed">
-            Professional cleaning services tailored to your needs, delivered promptly at affordable prices. We bring the sparkle back to your home or business.
+          <p className="text-lg sm:text-xl text-white/80 mb-4 max-w-lg leading-relaxed">
+            Trusted, local & fully tailored cleaning services. We bring the sparkle back to your home or business.
           </p>
+
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
+            <span className="text-white/70 text-sm flex items-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5" /> Fully insured & vetted team
+            </span>
+            <span className="text-white/70 text-sm flex items-center gap-1.5">
+              <Sparkles className="w-3.5 h-3.5" /> Flexible, tailored plans
+            </span>
+            <span className="text-white/70 text-sm flex items-center gap-1.5">
+              <ClipboardCheck className="w-3.5 h-3.5" /> Free consultations available
+            </span>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-3 mb-12">
             <Button
@@ -47,7 +59,7 @@ export function HeroSection() {
               className="text-base"
               data-testid="button-hero-quote"
             >
-              Get a Free Quote
+              Get Your Free Quote Now
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
             <Button
@@ -59,19 +71,6 @@ export function HeroSection() {
             >
               Our Services
             </Button>
-          </div>
-
-          <div className="flex flex-wrap gap-6">
-            {[
-              { icon: ClipboardCheck, label: "Free Consultation" },
-              { icon: Star, label: "5-Star Rated" },
-              { icon: ShieldCheck, label: "Fully Insured" },
-            ].map((item) => (
-              <div key={item.label} className="flex items-center gap-2 text-white/70">
-                <item.icon className="w-4 h-4 text-white/50" />
-                <span className="text-sm font-medium">{item.label}</span>
-              </div>
-            ))}
           </div>
         </motion.div>
       </div>
