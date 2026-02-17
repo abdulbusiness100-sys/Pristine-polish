@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 
 const highlights = [
   "Prompt service - often within 24 hours",
-  "All cleaning products provided",
+  "Premium / eco-friendly products used & allergen check",
   "Trained & uniformed cleaning professionals",
   "Fully insured with public liability cover",
   "We'll beat any like-for-like quote",
   "No long-term contracts required",
   "Fresh flowers left after every deep clean",
-  "Premium eco-friendly products used",
+  "Free in-home consultation for a tailored service",
 ];
 
 export function AboutSection() {
@@ -34,7 +34,7 @@ export function AboutSection() {
             </div>
             <div className="absolute -bottom-4 -right-4 sm:-bottom-6 sm:-right-6 bg-primary text-primary-foreground rounded-md p-4 sm:p-6">
               <div className="text-2xl sm:text-3xl font-bold">10%</div>
-              <div className="text-xs sm:text-sm opacity-90">off your first<br />deep clean</div>
+              <div className="text-xs sm:text-sm opacity-90">off your first<br />3 months</div>
             </div>
           </motion.div>
 
@@ -51,10 +51,10 @@ export function AboutSection() {
               Your Space, Our Passion
             </h2>
             <p className="text-muted-foreground text-base leading-relaxed mb-4">
-              At Pristine Polish, we believe everyone deserves a clean space. Whether you run a busy household, own a small business, are a landlord, or manage student accommodation, we provide a personalised quality service tailored to work around you.
+              Pristine Polish believes everyone deserves a clean space. Whether customers run a busy household, own a small business, are landlords, or manage student accommodation, the team provides a personalised quality service tailored to work around each client's schedule.
             </p>
             <p className="text-muted-foreground text-base leading-relaxed mb-8">
-              As a busy mum myself, I understand the challenge of keeping on top of cleaning. That's why we created Pristine Polish - to take the stress away at affordable, fair prices. We don't just clean your space, we leave it looking and smelling fabulous.
+              Proudly serving the North East, Pristine Polish takes the stress out of cleaning at affordable, fair prices. The team doesn't just clean a space - they leave it looking and smelling fabulous.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

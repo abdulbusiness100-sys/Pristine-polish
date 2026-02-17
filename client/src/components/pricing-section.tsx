@@ -15,22 +15,24 @@ const plans = [
       "Kitchen, bathroom, or living room",
       "All products provided",
       "No commitment required",
-      "Add extra rooms from £20",
+      "Add extra rooms from \u00a320",
     ],
     popular: false,
   },
   {
     name: "Fortnightly Clean",
     price: "100",
-    unit: "per visit",
-    description: "Keep your home consistently spotless with regular scheduled visits.",
+    unit: "per month",
+    description: "Keep your home consistently spotless with 2 visits per month at one simple monthly price.",
     features: [
-      "Twice monthly visits",
+      "2 visits per month",
       "Full home maintenance clean",
       "Free oven clean included",
+      "No extra cost if job takes longer than recommended time",
       "Priority booking",
       "Flexible scheduling",
       "Products & equipment included",
+      "10% off your first 3 months",
     ],
     popular: true,
   },
@@ -43,7 +45,6 @@ const plans = [
       "Full property deep clean",
       "Bedrooms, kitchen, bathrooms",
       "Carpet & floor cleaning",
-      "Window cleaning included",
       "Multiple cleaners dispatched",
       "Fresh flowers on completion",
     ],
@@ -107,7 +108,7 @@ export function PricingSection() {
                   </p>
                   <div className="flex items-baseline gap-1">
                     <span className="text-xs text-muted-foreground uppercase">{plan.unit}</span>
-                    <span className="text-4xl font-bold text-foreground">£{plan.price}</span>
+                    <span className="text-4xl font-bold text-foreground">\u00a3{plan.price}</span>
                   </div>
                 </div>
 

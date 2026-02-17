@@ -5,51 +5,11 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    name: "Sarah Thompson",
-    location: "Jesmond, Newcastle",
+    name: "Mr & Mrs Johnson",
+    location: "North East",
     rating: 5,
-    text: "Pristine Polish transformed my flat before I moved out. The landlord was impressed and I got my full deposit back. Their attention to detail is incredible - they even cleaned areas I didn't think of. Highly recommend their end of tenancy service!",
-    serviceType: "End of Tenancy",
-  },
-  {
-    id: 2,
-    name: "James Robertson",
-    location: "Gosforth, Newcastle",
-    rating: 5,
-    text: "We've been using Pristine Polish fortnightly for three months now and the house has never looked better. They're reliable, thorough, and always leave the place smelling wonderful. The free oven clean is a lovely bonus too!",
-    serviceType: "Fortnightly Cleaning",
-  },
-  {
-    id: 3,
-    name: "Amira Hassan",
-    location: "Gateshead",
-    rating: 5,
-    text: "Called on Monday needing an urgent deep clean before family arrived on Wednesday. They had someone at my door by Tuesday morning! The quality was outstanding and the price was very fair. Fresh flowers at the end were such a thoughtful touch.",
-    serviceType: "Deep Clean",
-  },
-  {
-    id: 4,
-    name: "David Chen",
-    location: "Heaton, Newcastle",
-    rating: 5,
-    text: "As an Airbnb host, quick turnaround cleaning is essential. Pristine Polish never lets me down. They respond quickly, clean to an impeccable standard, and my guests always comment on how spotless the place is. Worth every penny.",
-    serviceType: "Domestic Cleaning",
-  },
-  {
-    id: 5,
-    name: "Lisa Parker",
-    location: "Low Fell, Gateshead",
-    rating: 4,
-    text: "Had a massive decluttering session done by Pristine Polish. They reorganised my entire kitchen and living room. It feels like a completely different house now! Very professional team who really listened to what I wanted.",
-    serviceType: "Decluttering",
-  },
-  {
-    id: 6,
-    name: "Mark Wilson",
-    location: "Fenham, Newcastle",
-    rating: 5,
-    text: "I manage several student properties and Pristine Polish handles all our end of tenancy cleans. They're consistent, affordable, and always deliver a high standard. The best cleaning service I've used in the area by far.",
-    serviceType: "End of Tenancy",
+    text: "Pristine Polish have been cleaning our home for a while now and the standard is always exceptional. They are reliable, thorough, and always leave the place looking and smelling wonderful. We wouldn't trust anyone else with our home. Highly recommended!",
+    serviceType: "Regular Cleaning",
   },
 ];
 
@@ -65,7 +25,7 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <span className="text-muted-foreground text-sm font-semibold uppercase tracking-wider" data-testid="text-testimonials-label">
-            Testimonials
+            Testimonial
           </span>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
             What Our Clients Say
@@ -75,7 +35,7 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="max-w-2xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -84,12 +44,12 @@ export function TestimonialsSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card className="p-6 h-full flex flex-col" data-testid={`card-testimonial-${index}`}>
+              <Card className="p-8 h-full flex flex-col" data-testid={`card-testimonial-${index}`}>
                 <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-4 h-4 ${
+                      className={`w-5 h-5 ${
                         i < testimonial.rating
                           ? "text-amber-400 fill-amber-400"
                           : "text-muted-foreground/20"
@@ -99,8 +59,8 @@ export function TestimonialsSection() {
                 </div>
 
                 <div className="relative flex-1 mb-4">
-                  <Quote className="w-6 h-6 text-primary/15 absolute -top-1 -left-1" />
-                  <p className="text-sm text-foreground/80 leading-relaxed pl-4">
+                  <Quote className="w-8 h-8 text-primary/15 absolute -top-1 -left-1" />
+                  <p className="text-base text-foreground/80 leading-relaxed pl-6">
                     {testimonial.text}
                   </p>
                 </div>

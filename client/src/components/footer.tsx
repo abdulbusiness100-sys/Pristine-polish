@@ -20,7 +20,7 @@ export function Footer() {
               />
             </div>
             <p className="text-sm opacity-60 leading-relaxed max-w-xs">
-              Professional cleaning services in Newcastle upon Tyne and Gateshead. Affordable, prompt, and tailored to your needs.
+              Professional cleaning services across the North East. Affordable, prompt, and tailored to your needs.
             </p>
           </div>
 
@@ -31,7 +31,7 @@ export function Footer() {
                 { label: "Services", href: "#services" },
                 { label: "About Us", href: "#about" },
                 { label: "Pricing", href: "#pricing" },
-                { label: "Reviews", href: "#testimonials" },
+                { label: "Testimonial", href: "#testimonials" },
                 { label: "Get a Quote", href: "#quote" },
               ].map((link) => (
                 <li key={link.href}>
@@ -82,7 +82,7 @@ export function Footer() {
               <li>
                 <div className="flex items-center gap-2 text-sm opacity-60">
                   <MapPin className="w-3.5 h-3.5 flex-shrink-0" />
-                  Newcastle upon Tyne / Gateshead
+                  Serving the North East
                 </div>
               </li>
             </ul>

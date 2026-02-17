@@ -21,7 +21,7 @@ const services = [
   {
     icon: CalendarCheck,
     title: "Fortnightly Cleaning",
-    description: "Consistent upkeep with our regular fortnightly visits. Keep your space consistently pristine.",
+    description: "Consistent upkeep with regular fortnightly visits. If the job takes longer than the recommended time, no additional cost is added.",
   },
   {
     icon: PartyPopper,
@@ -63,7 +63,7 @@ export function ServicesSection() {
             Our Services
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            From regular upkeep to deep cleans, we provide a full range of professional cleaning services to keep your space looking its best.
+            From regular upkeep to deep cleans, we provide a full range of professional cleaning services to keep your space looking its best. Book a free in-home consultation for a service tailored to you.
           </p>
         </motion.div>
 

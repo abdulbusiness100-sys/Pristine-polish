@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Star, ShieldCheck } from "lucide-react";
+import { ArrowRight, Star, ShieldCheck, ClipboardCheck } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
@@ -28,7 +28,7 @@ export function HeroSection() {
         >
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-white/90 text-sm font-medium">Serving Newcastle upon Tyne & Gateshead</span>
+            <span className="text-white/90 text-sm font-medium">Serving the North East</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
@@ -63,7 +63,7 @@ export function HeroSection() {
 
           <div className="flex flex-wrap gap-6">
             {[
-              { icon: Clock, label: "Same-Day Service" },
+              { icon: ClipboardCheck, label: "Free Consultation" },
               { icon: Star, label: "5-Star Rated" },
               { icon: ShieldCheck, label: "Fully Insured" },
             ].map((item) => (
