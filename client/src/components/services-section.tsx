@@ -77,22 +77,23 @@ export function ServicesSection() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              whileHover={{ y: -5 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.4, delay: index * 0.05 }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
             >
               <Card
-                className="p-6 h-full hover-elevate transition-all duration-200 group"
+                className="p-6 h-full glass-card hover:shadow-[0_8px_30px_rgb(20,184,166,0.15)] hover:border-primary/30 transition-all duration-300 group cursor-default"
                 data-testid={`card-service-${index}`}
               >
-                <div className="w-11 h-11 rounded-md bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="w-5 h-5 text-primary" />
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300 shadow-sm">
+                  <service.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                 </div>
-                <h3 className="text-base font-semibold text-card-foreground mb-2">
+                <h3 className="text-lg font-bold text-card-foreground mb-3 tracking-tight group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <p className="text-sm text-muted-foreground leading-relaxed font-light">
                   {service.description}
                 </p>
               </Card>
@@ -109,8 +110,8 @@ export function ServicesSection() {
         >
           <Button
             size="lg"
-            onClick={() => scrollTo("#quote")}
-            className="text-base"
+            onClick={() => scrollTo("#booking")}
+            className="btn-glow text-base h-12 px-8 rounded-full"
             data-testid="button-services-quote"
           >
             Book Your Free Consultation
