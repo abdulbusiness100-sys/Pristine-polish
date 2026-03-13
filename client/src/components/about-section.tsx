@@ -8,7 +8,6 @@ const highlights = [
   "Fully insured with public liability cover",
   "We'll beat any like-for-like quote",
   "No long-term contracts required",
-  "Fresh flowers left after every deep clean",
   "Free in-home consultation for a tailored service",
 ];
 
@@ -32,13 +31,6 @@ export function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
             </div>
-            <motion.div
-              whileHover={{ scale: 1.05, rotate: 2 }}
-              className="absolute -bottom-6 -right-6 sm:-bottom-8 sm:-right-8 glass-card bg-primary/95 text-primary-foreground rounded-2xl p-5 sm:p-7 shadow-[0_10px_40px_rgba(20,184,166,0.4)] border border-white/20"
-            >
-              <div className="text-3xl sm:text-4xl font-extrabold tracking-tighter drop-shadow-md">10%</div>
-              <div className="text-xs sm:text-sm font-medium opacity-90 tracking-wide mt-1">off your first<br />month</div>
-            </motion.div>
           </motion.div>
 
           <motion.div

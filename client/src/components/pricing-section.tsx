@@ -11,7 +11,7 @@ const regularPlans = [
     hours: "3 hrs",
     badge: null as string | null,
     features: [
-      "Full home maintenance clean",
+      "Maintenance clean",
       "All products & equipment included",
       "No extra charge if we run over",
       "Flexible scheduling",
@@ -25,15 +25,13 @@ const regularPlans = [
     hours: "2.5 hrs per visit",
     badge: "MOST POPULAR" as string | null,
     features: [
-      "Full home maintenance clean",
-      "Free oven clean included",
+      "Maintenance clean",
       "No extra charge if we run over",
       "Priority booking",
       "Flexible scheduling",
       "Premium / eco-friendly products",
       "Allergen check included",
       "Free in-home consultation",
-      "10% off your first month",
     ],
   },
   {
@@ -44,7 +42,7 @@ const regularPlans = [
     hours: "Min 2 hrs / visit",
     badge: "BEST VALUE" as string | null,
     features: [
-      "Full home maintenance clean",
+      "Maintenance clean",
       "Free oven clean once a month",
       "No extra charge if we run over",
       "Priority booking",
