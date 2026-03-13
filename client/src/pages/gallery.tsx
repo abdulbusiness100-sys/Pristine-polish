@@ -6,6 +6,8 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { galleryItems, galleryCategories, featuredHeroVideo, GalleryItem, GalleryCategory } from "@/data/gallery-data";
 
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
+
 // ─── Lightbox ────────────────────────────────────────────────────────────────
 
 function Lightbox({ item, items, onClose, onPrev, onNext }: {
@@ -484,8 +486,10 @@ export default function GalleryPage() {
             <p className="text-muted-foreground text-lg mb-8 font-light">
               Every transformation you've seen started with a free consultation. Yours is next.
             </p>
-            <Button size="lg" className="btn-glow h-14 px-10 text-base rounded-full" onClick={() => window.location.href = "/#booking"}>
-              Book Your Free Consultation
+            <Button size="lg" className="btn-glow h-14 px-10 text-base rounded-full" asChild>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                Book Your Free Consultation
+              </a>
             </Button>
           </motion.div>
         </div>

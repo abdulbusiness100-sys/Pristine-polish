@@ -6,6 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLocation } from "wouter";
 import logoImg from "@assets/download_(60)_1770737910930.png";
 
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
+
 const navLinks = [
   { label: "Services", href: "#services" },
   { label: "About", href: "#about" },
@@ -106,12 +108,14 @@ export function Navbar() {
         ))}
         <ThemeToggle />
         <Button
-          onClick={() => handleLink({ href: "#booking" })}
+          asChild
           size="sm"
           className="btn-glow ml-1 rounded-full px-4"
           data-testid="button-get-quote-nav"
         >
-          Book Now
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+            Book Now
+          </a>
         </Button>
       </motion.nav>
 
@@ -178,11 +182,13 @@ export function Navbar() {
                 ))}
                 <div className="px-1 pt-3 pb-1">
                   <Button
-                    onClick={() => handleLink({ href: "#booking" })}
+                    asChild
                     className="btn-glow w-full rounded-xl"
                     data-testid="button-get-quote-mobile"
                   >
-                    Book Now
+                    <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                      Book Now
+                    </a>
                   </Button>
                 </div>
               </div>

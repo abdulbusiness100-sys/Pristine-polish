@@ -3,6 +3,8 @@ import { ArrowRight, ShieldCheck, ClipboardCheck, Sparkles, ChevronDown } from "
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
+
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -10,10 +12,10 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  // Parallax effects
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // Parallax effects — lighter transforms for better perf
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
   const scrollTo = (href: string) => {
     const el = document.querySelector(href);
@@ -76,27 +78,24 @@ export function HeroSection() {
 
           <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button
+              asChild
               size="lg"
-              onClick={() => scrollTo("#booking")}
               className="btn-glow text-base h-14 px-8 rounded-full"
               data-testid="button-hero-quote"
             >
-              Get Your Free Quote Now
-              <motion.div
-                animate={{ x: [0, 5, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-              >
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+                Book Your Clean Now
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </motion.div>
+              </a>
             </Button>
             <Button
               size="lg"
               variant="outline"
-              onClick={() => scrollTo("#services")}
+              onClick={() => scrollTo("#pricing")}
               className="btn-ghost-pill text-base h-14 px-8 border-white/30 text-white backdrop-blur-sm hover:bg-white/10"
               data-testid="button-hero-services"
             >
-              Our Services
+              View Pricing
             </Button>
           </div>
 

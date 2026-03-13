@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CalendarCheck, ShieldCheck, Clock, MessageCircle } from "lucide-react";
 
-const JOBBER_URL = "https://clienthub.getjobber.com/booking/30185328-54a9-4520-8760-603ac0b4fcd5";
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
 const WHATSAPP_URL = "https://wa.me/447940551427?text=Hi%20Pristine%20Polish%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services.";
 
 const trustSignals = [
@@ -53,7 +53,7 @@ export function QuoteSection() {
                 size="lg"
                 className="btn-glow h-14 px-10 text-base rounded-full"
               >
-                <a href={JOBBER_URL} target="_blank" rel="noopener noreferrer">
+                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
                   Book Your Clean Now
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </a>

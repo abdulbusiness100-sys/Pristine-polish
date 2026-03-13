@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Home, Building2, CalendarCheck, Sparkles, Trash2, LayoutGrid, PartyPopper, ArrowUpDown, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
+
 const services = [
   {
     icon: Home,
@@ -47,11 +49,6 @@ const services = [
 ];
 
 export function ServicesSection() {
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section id="services" className="py-20 sm:py-28 bg-background" data-testid="section-services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -109,13 +106,15 @@ export function ServicesSection() {
           className="text-center mt-12"
         >
           <Button
+            asChild
             size="lg"
-            onClick={() => scrollTo("#booking")}
             className="btn-glow text-base h-12 px-8 rounded-full"
             data-testid="button-services-quote"
           >
-            Book Your Free Consultation
-            <ArrowRight className="ml-2 w-4 h-4" />
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer">
+              Book Your Free Consultation
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </a>
           </Button>
         </motion.div>
       </div>

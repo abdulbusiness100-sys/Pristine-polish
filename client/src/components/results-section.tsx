@@ -2,8 +2,32 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, ImagePlus, ArrowRight } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { useLocation } from "wouter";
+
+/** Lazy video: only plays when its container is visible in the viewport */
+function LazyVideo({ src, className, ...rest }: React.VideoHTMLAttributes<HTMLVideoElement> & { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = ref.current;
+    if (!video) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  return <video ref={ref} src={src} muted playsInline loop preload="none" className={className} {...rest} />;
+}
 
 const results = [
   {
@@ -47,7 +71,7 @@ function BeforeAfterCard({ result, index }: { result: (typeof results)[0]; index
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -5, scale: 1.02 }}
+      whileHover={{ y: -4 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.5, delay: index * 0.1, type: "spring", stiffness: 300, damping: 20 }}
       className="flex-shrink-0 w-full md:w-[450px]"
@@ -65,9 +89,8 @@ function BeforeAfterCard({ result, index }: { result: (typeof results)[0]; index
           >
             {/* Before — full size background */}
             {beforeIsVideo ? (
-              <video
+              <LazyVideo
                 src={result.before}
-                autoPlay loop muted playsInline
                 className="absolute inset-0 w-full h-full object-cover"
                 data-testid={`img-result-before-${index}`}
               />
@@ -86,9 +109,8 @@ function BeforeAfterCard({ result, index }: { result: (typeof results)[0]; index
               style={{ width: `${sliderPosition}%` }}
             >
               {afterIsVideo ? (
-                <video
+                <LazyVideo
                   src={result.after}
-                  autoPlay loop muted playsInline
                   className="w-full h-full object-cover"
                   style={{ width: containerRef.current?.offsetWidth ?? "100%" }}
                   data-testid={`img-result-after-${index}`}
@@ -169,10 +191,10 @@ export function ResultsSection() {
     <section id="results" className="py-20 sm:py-28 bg-card" data-testid="section-results">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="text-center mb-16 relative"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-primary/10 rounded-full blur-[80px] -z-10" />
@@ -215,8 +237,8 @@ export function ResultsSection() {
               <Card className="h-full flex items-center justify-center p-8 glass-card border-primary/20 border bg-primary/5 cursor-pointer group" data-testid="gallery-cta-card" onClick={() => navigate("/gallery")}>
                 <div className="text-center">
                   <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                    whileHover={{ rotate: 15, scale: 1.1 }}
+                    transition={{ type: "spring", stiffness: 300 }}
                     className="w-16 h-16 rounded-2xl glass flex items-center justify-center mx-auto mb-5 shadow-lg shadow-primary/20 border border-primary/20"
                   >
                     <ImagePlus className="w-8 h-8 text-primary" />

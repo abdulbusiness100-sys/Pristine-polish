@@ -2,6 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
+const BOOKING_URL = "https://pristinepolish.bookingkoala.com/booknow";
+
 const regularPlans = [
   {
     name: "Once a Month",
@@ -80,9 +82,8 @@ const additionalServices = [
   },
 ];
 
-function scrollToBooking() {
-  const el = document.querySelector("#booking");
-  if (el) el.scrollIntoView({ behavior: "smooth" });
+function openBooking() {
+  window.open(BOOKING_URL, "_blank", "noopener,noreferrer");
 }
 
 export function PricingSection() {
@@ -180,7 +181,7 @@ export function PricingSection() {
                 <Button
                   className={`w-full rounded-xl ${plan.badge === "MOST POPULAR" ? "btn-glow" : "btn-soft"}`}
                   variant={plan.badge === "MOST POPULAR" ? "default" : "outline"}
-                  onClick={scrollToBooking}
+                  onClick={openBooking}
                   data-testid={`button-pricing-quote-${index}`}
                 >
                   Get Started <ArrowRight className="ml-2 w-4 h-4" />
@@ -230,7 +231,7 @@ export function PricingSection() {
               {svc.note && (
                 <p className="text-xs text-foreground/70 mt-3 font-medium">{svc.note}</p>
               )}
-              <Button variant="outline" className="mt-5 w-full rounded-xl" onClick={scrollToBooking}>
+              <Button variant="outline" className="mt-5 w-full rounded-xl" onClick={openBooking}>
                 Book This <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </motion.div>
@@ -254,7 +255,7 @@ export function PricingSection() {
             </p>
             <p className="text-sm font-semibold text-primary mb-6">"Prices to suit every budget"</p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <Button onClick={scrollToBooking} className="btn-glow rounded-full px-8">
+              <Button onClick={openBooking} className="btn-glow rounded-full px-8">
                 Book Free Consultation <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
               <Button variant="outline" className="btn-ghost-pill px-8" asChild>
