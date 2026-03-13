@@ -65,7 +65,7 @@ export function ServicesSection() {
           <span className="text-muted-foreground text-sm font-semibold uppercase tracking-wider" data-testid="text-services-label">
             What We Offer
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mt-3 mb-4">
             Our Services
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">

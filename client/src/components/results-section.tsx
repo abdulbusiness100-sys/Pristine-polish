@@ -125,7 +125,8 @@ function BeforeAfterCard({ result, index }: { result: (typeof results)[0]; index
 
             {/* Hover hint */}
             <div className="absolute bottom-3 left-1/2 -translate-x-1/2 glass text-white/70 text-[10px] font-medium px-3 py-1 rounded-full opacity-100 group-hover:opacity-0 transition-opacity duration-300 pointer-events-none">
-              Move cursor to reveal
+              <span className="hidden sm:inline">Move cursor to reveal</span>
+              <span className="sm:hidden">Swipe to reveal</span>
             </div>
           </div>
         </div>
@@ -178,7 +179,7 @@ export function ResultsSection() {
           <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-widest mb-4 border border-primary/20 shadow-sm" data-testid="text-results-label">
             Our Results
           </span>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mt-2 mb-6 tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-extrabold font-display text-foreground mt-2 mb-6 tracking-tight">
             See the <span className="text-gradient">Pristine</span> Difference
           </h2>
           <p className="text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto font-light leading-relaxed">
@@ -235,7 +236,7 @@ export function ResultsSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               onClick={() => scroll("left")}
-              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-16 z-10 p-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 p-2.5 rounded-full bg-primary/90 text-primary-foreground hover:bg-primary transition-colors shadow-lg backdrop-blur-sm"
               aria-label="Scroll left"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -247,7 +248,7 @@ export function ResultsSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               onClick={() => scroll("right")}
-              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-16 z-10 p-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 p-2.5 rounded-full bg-primary/90 text-primary-foreground hover:bg-primary transition-colors shadow-lg backdrop-blur-sm"
               aria-label="Scroll right"
             >
               <ChevronRight className="w-6 h-6" />

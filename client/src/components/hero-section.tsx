@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ShieldCheck, ClipboardCheck, Sparkles } from "lucide-react";
+import { ArrowRight, ShieldCheck, ClipboardCheck, Sparkles, ChevronDown } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 
@@ -53,7 +53,7 @@ export function HeroSection() {
             <span className="text-white/95 text-sm font-medium tracking-wide border-l border-white/20 pl-2 ml-1">Serving the North East</span>
           </motion.div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-[1.1] mb-6 tracking-tight">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-display text-white leading-[1.1] mb-6 tracking-tight">
             Professional Cleaning That Gives You Back
             <span className="block text-gradient mt-2 pb-2"> Your Time</span>
           </h1>
@@ -74,7 +74,7 @@ export function HeroSection() {
             </motion.span>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 mb-10">
             <Button
               size="lg"
               onClick={() => scrollTo("#booking")}
@@ -99,8 +99,39 @@ export function HeroSection() {
               Our Services
             </Button>
           </div>
+
+          {/* Social proof strip */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.6 }}
+            className="flex flex-wrap items-center gap-4 sm:gap-6"
+          >
+            <div className="flex -space-x-2">
+              {[1, 2, 3, 4].map(i => (
+                <div key={i} className="w-8 h-8 rounded-full bg-primary/30 border-2 border-black/30 flex items-center justify-center text-[10px] font-bold text-white/90">
+                  {["RA", "SJ", "KM", "DT"][i - 1]}
+                </div>
+              ))}
+            </div>
+            <div className="text-white/70 text-sm font-light">
+              <span className="text-white font-semibold">Trusted by families</span> across Newcastle, Gateshead & Sunderland
+            </div>
+          </motion.div>
         </motion.div>
       </motion.div>
+
+      {/* Scroll chevron */}
+      <motion.button
+        onClick={() => scrollTo("#services")}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ opacity: { delay: 2 }, y: { repeat: Infinity, duration: 2, ease: "easeInOut" } }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 hover:text-white/80 transition-colors"
+        aria-label="Scroll to services"
+      >
+        <ChevronDown className="w-7 h-7" />
+      </motion.button>
     </section>
   );
 }

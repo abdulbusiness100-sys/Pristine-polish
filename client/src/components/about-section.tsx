@@ -17,7 +17,7 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -30, rotate: -5 }}
+            initial={{ opacity: 0, x: -30, rotate: -2 }}
             whileInView={{ opacity: 1, x: 0, rotate: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
@@ -27,7 +27,7 @@ export function AboutSection() {
               <img
                 src="/images/cleaning-supplies.png"
                 alt="Professional cleaning supplies"
-                className="w-full aspect-square object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full aspect-[4/3] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
             </div>
@@ -42,7 +42,7 @@ export function AboutSection() {
             <span className="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary text-sm font-bold uppercase tracking-widest mb-4 border border-primary/20 shadow-sm" data-testid="text-about-label">
               About Us
             </span>
-            <h2 className="text-4xl sm:text-5xl font-extrabold text-foreground mt-2 mb-6 tracking-tight">
+            <h2 className="text-4xl sm:text-5xl font-extrabold font-display text-foreground mt-2 mb-6 tracking-tight">
               Your Space, <span className="text-gradient">Our Passion</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-4 font-light">

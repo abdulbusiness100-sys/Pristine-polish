@@ -1,10 +1,27 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, MessageCircle } from "lucide-react";
+import { useLocation } from "wouter";
 import logoImg from "@assets/download_(60)_1770737910930.png";
 
+const WHATSAPP_URL = "https://wa.me/447940551427?text=Hi%20Pristine%20Polish%2C%20I%27d%20like%20to%20enquire%20about%20your%20cleaning%20services.";
+
 export function Footer() {
-  const scrollTo = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+  const [location, navigate] = useLocation();
+
+  const handleLink = (href: string) => {
+    if (href.startsWith("/")) {
+      navigate(href);
+      return;
+    }
+    if (location !== "/") {
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    } else {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -33,11 +50,12 @@ export function Footer() {
                 { label: "About Us", href: "#about" },
                 { label: "Pricing", href: "#pricing" },
                 { label: "Results", href: "#results" },
+                { label: "Gallery", href: "/gallery" },
                 { label: "Book Now", href: "#booking" },
               ].map((link) => (
                 <li key={link.href}>
                   <button
-                    onClick={() => scrollTo(link.href)}
+                    onClick={() => handleLink(link.href)}
                     className="text-sm opacity-70 hover:opacity-100 hover:text-primary transition-all duration-300 font-light flex items-center gap-2 group"
                     data-testid={`link-footer-${link.label.toLowerCase().replace(/\s/g, "-")}`}
                   >
@@ -83,6 +101,14 @@ export function Footer() {
                     <Mail className="w-3.5 h-3.5" />
                   </div>
                   admin@pristine-polish.co.uk
+                </a>
+              </li>
+              <li>
+                <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm opacity-70 hover:opacity-100 hover:text-emerald-400 transition-colors font-light" data-testid="link-footer-whatsapp">
+                  <div className="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center">
+                    <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                  </div>
+                  WhatsApp Us
                 </a>
               </li>
               <li>

@@ -99,12 +99,26 @@ export function PricingSection() {
           className="text-center mb-16"
         >
           <span className="text-muted-foreground text-sm font-semibold uppercase tracking-wider">Pricing</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mt-3 mb-4">
             Simple, <span className="text-gradient">Transparent</span> Pricing
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
             No hidden fees. No hourly surprises. Prices to suit every budget.
           </p>
+        </motion.div>
+
+        {/* Urgency Banner */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="text-center mb-8"
+        >
+          <span className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm font-semibold px-5 py-2 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            10% off your first month — Limited time
+          </span>
         </motion.div>
 
         {/* Regular Cleaning Plans label */}
@@ -146,7 +160,7 @@ export function PricingSection() {
               <div className="p-6 sm:p-7 flex flex-col flex-1">
                 <h3 className="text-lg font-bold text-foreground mb-1">{plan.name}</h3>
                 <div className="flex items-baseline gap-1 mb-3">
-                  <span className="text-4xl font-bold text-foreground">{plan.price}</span>
+                  <span className="text-4xl font-bold font-mono text-foreground">{plan.price}</span>
                   <span className="text-muted-foreground text-sm">{plan.unit}</span>
                 </div>
                 <div className="flex flex-wrap gap-2 mb-5">
@@ -208,7 +222,7 @@ export function PricingSection() {
             >
               <div className="text-3xl mb-3">{svc.icon}</div>
               <h3 className="text-base font-bold text-foreground mb-1">{svc.title}</h3>
-              <div className="text-2xl font-bold text-primary mb-3">{svc.price}</div>
+              <div className="text-2xl font-bold font-mono text-primary mb-3">{svc.price}</div>
               <p className="text-sm text-muted-foreground leading-relaxed flex-1">{svc.description}</p>
               {svc.addons && (
                 <p className="text-xs text-muted-foreground mt-2 glass rounded-lg px-3 py-2">{svc.addons}</p>

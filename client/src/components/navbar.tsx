@@ -17,7 +17,7 @@ const navLinks = [
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-  const [, navigate] = useLocation();
+  const [location, navigate] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 80);
@@ -25,10 +25,27 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isMobileOpen]);
+
   const handleLink = (link: { href: string; page?: boolean }) => {
     setIsMobileOpen(false);
     if (link.page) {
       navigate(link.href);
+    } else if (location !== "/") {
+      // Navigate home first, then scroll after a tick
+      navigate("/");
+      setTimeout(() => {
+        const el = document.querySelector(link.href);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
     } else {
       const el = document.querySelector(link.href);
       if (el) el.scrollIntoView({ behavior: "smooth" });
@@ -121,41 +138,56 @@ export function Navbar() {
         </button>
       </motion.div>
 
-      {/* Mobile drawer */}
+      {/* Mobile backdrop + drawer */}
       <AnimatePresence>
         {isMobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -12, scale: 0.97 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -8, scale: 0.97 }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-            className="fixed top-20 right-4 z-50 md:hidden glass rounded-2xl border border-white/10 shadow-xl overflow-hidden w-56"
-          >
-            <div className="px-3 py-3 space-y-0.5">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.href}
-                  initial={{ opacity: 0, x: 10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  onClick={() => handleLink(link)}
-                  className="block w-full text-left px-4 py-2.5 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-white/10 rounded-xl transition-colors"
-                  data-testid={`link-mobile-${link.label.toLowerCase()}`}
-                >
-                  {link.label}
-                </motion.button>
-              ))}
-              <div className="px-1 pt-2 pb-1">
-                <Button
-                  onClick={() => handleLink({ href: "#booking" })}
-                  className="btn-glow w-full rounded-xl"
-                  data-testid="button-get-quote-mobile"
-                >
-                  Book Now
-                </Button>
+          <>
+            {/* Backdrop overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm md:hidden"
+              onClick={() => setIsMobileOpen(false)}
+              aria-hidden="true"
+            />
+            {/* Drawer panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -12, scale: 0.97 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              className="fixed top-20 right-4 z-50 md:hidden glass rounded-2xl border border-white/10 shadow-xl overflow-hidden w-72"
+              role="dialog"
+              aria-label="Navigation menu"
+            >
+              <div className="px-4 py-4 space-y-1">
+                {navLinks.map((link, i) => (
+                  <motion.button
+                    key={link.href}
+                    initial={{ opacity: 0, x: 10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.05 }}
+                    onClick={() => handleLink(link)}
+                    className="block w-full text-left px-4 py-3 text-sm font-medium text-foreground/80 hover:text-foreground hover:bg-white/10 rounded-xl transition-colors"
+                    data-testid={`link-mobile-${link.label.toLowerCase()}`}
+                  >
+                    {link.label}
+                  </motion.button>
+                ))}
+                <div className="px-1 pt-3 pb-1">
+                  <Button
+                    onClick={() => handleLink({ href: "#booking" })}
+                    className="btn-glow w-full rounded-xl"
+                    data-testid="button-get-quote-mobile"
+                  >
+                    Book Now
+                  </Button>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

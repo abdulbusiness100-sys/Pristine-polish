@@ -6,10 +6,26 @@ const testimonials = [
   {
     id: 1,
     name: "Mr & Mrs Johnson",
-    location: "North East",
+    location: "Newcastle",
     rating: 5,
     text: "Pristine Polish have been cleaning our home for a while now and the standard is always exceptional. They are reliable, thorough, and always leave the place looking and smelling wonderful. We wouldn't trust anyone else with our home. Highly recommended!",
     serviceType: "Regular Cleaning",
+  },
+  {
+    id: 2,
+    name: "Sarah T.",
+    location: "Gateshead",
+    rating: 5,
+    text: "I booked an end of tenancy clean and was blown away by the results. Every surface was spotless and my landlord returned my full deposit without question. The team were punctual, professional, and incredibly thorough.",
+    serviceType: "End of Tenancy",
+  },
+  {
+    id: 3,
+    name: "David & Karen M.",
+    location: "Sunderland",
+    rating: 5,
+    text: "We've used the fortnightly service for three months now and our home has never looked better. The flexibility around scheduling is great, and the team genuinely cares about the quality of their work. Worth every penny.",
+    serviceType: "Fortnightly Cleaning",
   },
 ];
 
@@ -25,9 +41,9 @@ export function TestimonialsSection() {
           className="text-center mb-16"
         >
           <span className="text-muted-foreground text-sm font-semibold uppercase tracking-wider" data-testid="text-testimonials-label">
-            Testimonial
+            Testimonials
           </span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-3 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold font-display text-foreground mt-3 mb-4">
             What Our Clients Say
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
@@ -35,7 +51,7 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -44,12 +60,12 @@ export function TestimonialsSection() {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <Card className="p-8 h-full flex flex-col" data-testid={`card-testimonial-${index}`}>
+              <Card className="p-6 sm:p-7 h-full flex flex-col glass-card" data-testid={`card-testimonial-${index}`}>
                 <div className="flex items-center gap-1 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className={`w-5 h-5 ${
+                      className={`w-4 h-4 ${
                         i < testimonial.rating
                           ? "text-amber-400 fill-amber-400"
                           : "text-muted-foreground/20"
@@ -59,8 +75,8 @@ export function TestimonialsSection() {
                 </div>
 
                 <div className="relative flex-1 mb-4">
-                  <Quote className="w-8 h-8 text-primary/15 absolute -top-1 -left-1" />
-                  <p className="text-base text-foreground/80 leading-relaxed pl-6">
+                  <Quote className="w-7 h-7 text-primary/15 absolute -top-1 -left-1" />
+                  <p className="text-sm text-foreground/80 leading-relaxed pl-5">
                     {testimonial.text}
                   </p>
                 </div>

@@ -2,6 +2,7 @@ import express from "express";
 import { createServer } from "http";
 import path from "path";
 import fs from "fs";
+import { registerRoutes } from "./routes";
 
 const app = express();
 const httpServer = createServer(app);
@@ -17,6 +18,8 @@ function log(message: string, source = "express") {
 }
 
 (async () => {
+  await registerRoutes(httpServer, app);
+
   if (process.env.NODE_ENV === "production") {
     const distPath = path.resolve(process.cwd(), "dist", "public");
     if (!fs.existsSync(distPath)) {
